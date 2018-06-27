@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Interface MatthiasWeb\RealMediaLibrary\api\IStructure | PHPDoc Real Media Library</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?70c1d062672daa3f906b72e4f5d03d4bc5c4174d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">PHPDoc Real Media Library</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html" title="Summary of MatthiasWeb\RealMediaLibrary\api"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.html">
+							MatthiasWeb<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.html">
+							RealMediaLibrary<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html">
+							api						</a>
+							</li>
+								</ul></li></ul></li>
+					<li>
+						<a href="namespace-None.html">
+							None						</a>
+							</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">IFolder</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html">IFolderActions</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html">IFolderContent</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IMetadata.html">IMetadata</a></li>
+				<li class="active"><a href="class-MatthiasWeb.RealMediaLibrary.api.IStructure.html">IStructure</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IUserSettings.html">IUserSettings</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Interface IStructure</h1>
+
+
+	<div class="description">
+	<p>Structure implementation for Real Media Library. It handles all SQL query which
+reads all folders from the database and "collects" it into one tree. You can modify the
+structure queries by RML/Tree* filters and extending the MatthiasWeb\RealMediaLibrary\attachment\Structure
+class (implements IStructure).</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-MatthiasWeb.html">MatthiasWeb</a>\<a href="namespace-MatthiasWeb.RealMediaLibrary.html">RealMediaLibrary</a>\<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html">api</a><br>
+		
+
+				<b>Since:</b>
+				3.3.1<br>
+				<b>See:</b>
+				<code><a href="function-wp_rml_structure_reset.html">wp_rml_structure_reset()</a></code><br>
+				<b>See:</b>
+				<code><a href="function-wp_rml_structure.html">wp_rml_structure()</a></code><br>
+			<b>Located at</b> IStructure.interface.php		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code>__construct( <span>integer <var>$root</var> = <span class="php-keyword1">null</span></span>, <span>array <var>$data</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Start reading a structure. If you pass a $root parameter the parameter is not
+automatically respected. You should then use your own implementation or filters
+to respect the root. Use this constructor to add your filters and respect your
+custom Structure class implementation.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Start reading a structure. If you pass a $root parameter the parameter is not
+automatically respected. You should then use your own implementation or filters
+to respect the root. Use this constructor to add your filters and respect your
+custom Structure class implementation.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$root</var></dt>
+						<dd>The root folder defined for the structure</dd>
+						<dt><var>$data</var></dt>
+						<dd>Custom data for the structure</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="initialLoad" id="_initialLoad">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_initialLoad">#</a>
+			<code>initialLoad( )</code>
+
+			<div class="description short">
+				<p>Checks, if the SQL result is available and load it if not.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Checks, if the SQL result is available and load it if not.</p>
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="resetData" id="_resetData">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_resetData">#</a>
+			<code>resetData( <span>integer <var>$root</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$fetchData</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				<p>Resets the data of the structure.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Resets the data of the structure.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$root</var></dt>
+						<dd>The root folder</dd>
+						<dt><var>$fetchData</var></dt>
+						<dd>Determine, if the data should be refetched</dd>
+					</dl></div>
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><a href="function-wp_rml_structure_reset.html">wp_rml_structure_reset()</a></code><br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="byId" id="_byId">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_byId">#</a>
+			<code>byId( <span> <var>$id</var></span>, <span> <var>$nullForRoot</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="byAbsolutePath" id="_byAbsolutePath">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_byAbsolutePath">#</a>
+			<code>byAbsolutePath( <span> <var>$path</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getRows" id="_getRows">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getRows">#</a>
+			<code>getRows( )</code>
+
+			<div class="description short">
+				<p>Get the SQL query result instead of IFolder objects.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the SQL query result instead of IFolder objects.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							object[] The SQL result<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getParsed" id="_getParsed">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getParsed">#</a>
+			<code>getParsed( )</code>
+
+			<div class="description short">
+				<p>Get all SQL query results as IFolder objects.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get all SQL query results as IFolder objects.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							IFolder[] The folders<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTree" id="_getTree">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">MatthiasWeb\RealMediaLibrary\api\IFolder</a>[]</code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTree">#</a>
+			<code>getTree( )</code>
+
+			<div class="description short">
+				<p>Get all SQL query results placed to a tree. That means it is a "hierarchical"
+result where you work with ->getChildren(). The first level contains the top folders.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get all SQL query results placed to a tree. That means it is a "hierarchical"
+result where you work with ->getChildren(). The first level contains the top folders.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">MatthiasWeb\RealMediaLibrary\api\IFolder</a>[]</code><br>The folders
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getCntAttachments" id="_getCntAttachments">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getCntAttachments">#</a>
+			<code>getCntAttachments( )</code>
+
+			<div class="description short">
+				<p>Get the attachment count for this structure.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the attachment count for this structure.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							integer Count<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getCntRoot" id="_getCntRoot">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getCntRoot">#</a>
+			<code>getCntRoot( )</code>
+
+			<div class="description short">
+				<p>Get the attachment count for the "/ Unorganized" folder for this structure.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the attachment count for the "/ Unorganized" folder for this structure.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							integer Count<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getData" id="_getData">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getData">#</a>
+			<code>getData( )</code>
+
+			<div class="description short">
+				<p>Get the custom data.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the custom data.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							array Data<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setData" id="_setData">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setData">#</a>
+			<code>setData( <span>array <var>$data</var></span> )</code>
+
+			<div class="description short">
+				<p>Set the custom data.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Set the custom data.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$data</var></dt>
+						<dd>The custom data</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PHPDoc Real Media Library API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

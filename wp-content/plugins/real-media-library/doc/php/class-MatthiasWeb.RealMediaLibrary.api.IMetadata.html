@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Interface MatthiasWeb\RealMediaLibrary\api\IMetadata | PHPDoc Real Media Library</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?70c1d062672daa3f906b72e4f5d03d4bc5c4174d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">PHPDoc Real Media Library</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html" title="Summary of MatthiasWeb\RealMediaLibrary\api"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.html">
+							MatthiasWeb<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.html">
+							RealMediaLibrary<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html">
+							api						</a>
+							</li>
+								</ul></li></ul></li>
+					<li>
+						<a href="namespace-None.html">
+							None						</a>
+							</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">IFolder</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html">IFolderActions</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html">IFolderContent</a></li>
+				<li class="active"><a href="class-MatthiasWeb.RealMediaLibrary.api.IMetadata.html">IMetadata</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IStructure.html">IStructure</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IUserSettings.html">IUserSettings</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Interface IMetadata</h1>
+
+
+	<div class="description">
+	<p>Metadata content of a folder. The metadata can be changed in the arrow-down icon
+in the folders sidebar toolbar. To handle metadata for folders you can
+use the <code><a href="function-add_media_folder_meta.html">add_media_folder_meta()</a></code> function.</p>
+
+<p>To register the metadata class you must use the following API function <code><a href="function-add_rml_meta_box.html">add_rml_meta_box()</a></code></p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-MatthiasWeb.html">MatthiasWeb</a>\<a href="namespace-MatthiasWeb.RealMediaLibrary.html">RealMediaLibrary</a>\<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html">api</a><br>
+		
+
+			<b>Located at</b> IMetadata.interface.php		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="content" id="_content">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_content">#</a>
+			<code>content( <span>string <var>$content</var></span>, <span><code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">MatthiasWeb\RealMediaLibrary\api\IFolder</a></code>|null <var>$folder</var></span> )</code>
+
+			<div class="description short">
+				<p>Return modified content for the meta box.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Return modified content for the meta box.</p>
+
+<p><strong>Note:</strong> If you want to use a more complex content
+in a meta table use something like this:</p>
+
+<pre>&lt;tr&gt;
+ &lt;th scope=<span class="php-quote">&quot;row&quot;</span>&gt;Medium size&lt;/th&gt;
+ &lt;td&gt;&lt;fieldset&gt;
+     &lt;legend <span class="php-keyword1">class</span>=<span class="php-quote">&quot;screen-reader-text&quot;</span>&gt;&lt;span&gt;Medium size&lt;/span&gt;&lt;/legend&gt;
+     &lt;label <span class="php-keyword1">for</span>=<span class="php-quote">&quot;medium_size_w&quot;</span>&gt;<span class="php-keyword2">Max</span> Width&lt;/label&gt;
+     &lt;input name=<span class="php-quote">&quot;medium_size_w&quot;</span> type=<span class="php-quote">&quot;number&quot;</span> step=<span class="php-quote">&quot;1&quot;</span> <span class="php-keyword2">min</span>=<span class="php-quote">&quot;0&quot;</span> id=<span class="php-quote">&quot;medium_size_w&quot;</span> value=<span class="php-quote">&quot;300&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;small-text&quot;</span>&gt;
+     &lt;label <span class="php-keyword1">for</span>=<span class="php-quote">&quot;medium_size_h&quot;</span>&gt;<span class="php-keyword2">Max</span> Height&lt;/label&gt;
+     &lt;input name=<span class="php-quote">&quot;medium_size_h&quot;</span> type=<span class="php-quote">&quot;number&quot;</span> step=<span class="php-quote">&quot;1&quot;</span> <span class="php-keyword2">min</span>=<span class="php-quote">&quot;0&quot;</span> id=<span class="php-quote">&quot;medium_size_h&quot;</span> value=<span class="php-quote">&quot;300&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;small-text&quot;</span>&gt;
+ &lt;/fieldset&gt;&lt;/td&gt;
+&lt;/tr&gt;</pre>
+
+<p>If you want to "group" your meta boxes you can use this code to create a empty space:</p>
+
+<pre>&lt;tr <span class="php-keyword1">class</span>=<span class="php-quote">&quot;rml-meta-margin&quot;</span>&gt;&lt;/tr&gt;</pre>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$content</var></dt>
+						<dd>the HTML formatted string for the dialog</dd>
+						<dt><var>$folder</var></dt>
+						<dd>The folder object</dd>
+					</dl></div>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							string Content<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="save" id="_save">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_save">#</a>
+			<code>save( <span>array <var>$response</var></span>, <span><code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">MatthiasWeb\RealMediaLibrary\api\IFolder</a></code>|null <var>$folder</var></span> )</code>
+
+			<div class="description short">
+				<p>Save the infos. Add an error to the array to show on the frontend dialog. Add an
+successful data to receive it in JavaScript.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Save the infos. Add an error to the array to show on the frontend dialog. Add an
+successful data to receive it in JavaScript.</p>
+
+<pre><span class="php-var">$response</span>[<span class="php-quote">&quot;errors&quot;</span>][] = <span class="php-quote">&quot;Your error&quot;</span>;
+<span class="php-var">$response</span>[<span class="php-quote">&quot;data&quot;</span>][<span class="php-quote">&quot;myData&quot;</span>] = <span class="php-quote">&quot;Test&quot;</span>;</pre>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$response</var></dt>
+						<dd>Array of errors and successful data.</dd>
+						<dt><var>$folder</var></dt>
+						<dd>The folder object</dd>
+					</dl></div>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							array Response<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="scripts" id="_scripts">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_scripts">#</a>
+			<code>scripts( )</code>
+
+			<div class="description short">
+				<p>Enqueue scripts and styles for this meta box.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Enqueue scripts and styles for this meta box.</p>
+
+<p>Note: This resources are only loaded in the media library.</p>
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PHPDoc Real Media Library API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

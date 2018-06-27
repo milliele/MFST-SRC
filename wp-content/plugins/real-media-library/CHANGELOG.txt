@@ -1,0 +1,401 @@
+16 January 2018 - Version 3.4.3
+- Improved uploading process / performance
+- Fixed bug with uploader when uploading to "All files"
+- Fixed bug when moving files from "All files" to another target
+
+17 December 2017 - Version 3.4.2
+- Fixed bug with F&O theme
+- (developers only) Fixed bug with new PHP version 7.2
+
+06 December 2017 - Version 3.4.1
+- (developers only) Fixed bug while installation process when creating database tables
+
+05 December 2017 - Version 3.4
+- Added functionality to Import / Export folder hierarchy
+- Added functionality to Import an registered taxonomy with attachment relations
+- Improved touch experience, added scrollbar in media picker to avoid drag&drop attachments
+- Fixed bug with search bar when folders were not found
+- Fixed bug with query links
+- (developers only) Fixed bug with Database updates caused by dbDelta
+
+31 October 2017 - Version 3.3.2 HOTFIX
+- Fixed bug after creating a new post the nodes are not clickable
+
+27 October 2017 - Version 3.3.1
+- Fixed bug with Unorganized folder in attachments dialog
+- Fixed bug with toolbar buttons
+- Fixed bug with touch devices (no dropdown was touchable)
+- (developers only) Added filters for structure operations, and created Interface for structure classes
+- (developers only) Fixed bug for all parents getter API function
+- (developers only) Improved code quality
+- (developers only) Removed filters RML/Tree/QueryCount
+
+22 October 2017 - Version 3.3
+- Added ability to expand/collapse the complete sidebar by doubleclick the resize button
+- Added option to allow automatically order a folder by a given criterium
+- Added "General" tabs in folder details settings (developers are now able to add own tabs)
+- Improved: Update the columns width in grid mode while resizing the sidebar
+- Fixed bug with wrong characters in gallery shortcode generator dialog
+- Fixed bug with Inbound Now PRO plugin dialogs
+- Fixed style bug with uploader in modal window
+- Fixed bug with ESC key in rename mode
+- Fixed bug with creating a new folder and switch back to previous
+- (developers only) Added owner/creator field for a folder
+- (developers only) Added option to reset the folder names, slugs and absolute pathes
+- (developers only) Added API functions to get all parents of a folder (additionally add metadata condition)
+- (developers only) Added API functions to get all children of a folder (additionally add metadata condition)
+- (developers only) Added hooks to allow "Apply to subfolder" mechanism after moving files to a folder
+- (developers only) Improved the save of localStorage items within one row per tree instance
+- (developers only) Improved the way of generating unique slugs
+- (developers only) Fixed bug with font awesome handler in wordpress style enqueue logic
+
+23 August 2017 - Version 3.2.2
+- Fixed bug with IE 11 when folder structure does not show up
+- Updated icon font (Font Awesome 4.3 to 4.7)
+
+11 August 2017 - Version 3.2.1 HOTFIX
+- Fixed bug with refresh button in folder tree
+
+11 August 2017 - Version 3.2
+- New free Add-On "Default Startup Folder for Real Media Library"
+- Added external link to "Browse Add-Ons"
+- Added ability to add user options (for Add-ons)
+- Added compatibility for Cornerstone page builder plugin
+- Fixed bug with modal window when opening the same again
+- (developers only) Added new filters to support the default wordpress media library extension plugin
+- (developers only) Added PHPDoc for API
+- (developers only) Added Hooks (Filter & Actions) Documentation
+- (developers only) Improved and renamed/refactored the events of JS hooks
+- (developers only) Improved the debug log
+- (developers only) Improved the generation and registration of minified scripts
+- (developers only) Fixed bug with localized Javascript object
+- (developers only) Fixed bug with slug regeneration when folder is moved
+- (developers only) Fixed bug with meta data for Unorganized folder
+
+04 July 2017 - Version 3.1.3
+- Fixed bug with gallery shortcode when the message occurs "Headers already sent[...]"
+- Fixed bug with sticky header in insert media dialog
+
+24 June 2017 - Version 3.1.2
+- Improved the "Add new" in media library to preselect the last queried folder
+- Fixed bug with some browsers when local storage is disabled
+- (developers only) Improved the wp_rml_dropdown() function to support multiple selected folders
+
+10 June 2017 - Version 3.1.1
+- Added full compatibility with WordPress 4.8
+- Improved english / german localization
+- Fixed bug with search field in IE
+
+08 June 2017 - Version 3.1
+- Added ESC to close the rename folder action
+- Added F2 handler to rename a folder
+- Added double click event to open folder
+- Added search input field for folders
+- Added full compatibility with Elementor page builder
+- Improved rearrange mode
+- Improved performance on media library initial startup / load screen
+- Improved uploader for large amount of uploads
+- Fixed bug with icons in BeaverBuilder
+- Fixed bug with multiple media modal dialogs (improved user experience) and expander
+- Fixed bug with ACF media picker and duplicate shortcut info
+- Fixed bug with rearrange mode in media modal view
+- Fixed bug with Enhanced Media Library representation
+
+09 May 2017 - Version 3.0.2
+- Added title attribute on folder hover (for long names)
+- Fixed bug in customizer while folder structure is not displayed
+- Fixed bug with multiple media modal's after switching the folder
+- Fixed bug with Advanced Custom Fields when using the image picker modal
+- Added compatibility for Tatsu Page Builder (Oshine Theme)
+
+22 April 2017 - Version 3.0.1
+- Fixed bug with attachment details, on some browsers the dropdowns were not clickable
+- Added a message strip to the plugins page to show MatthiasWeb plugins
+
+20 April 2017 - Version 3.0
+- Added feature to create shortcuts and put images in multiple folders, like you already know from your operating system
+- Removed popups
+- Fixed bug with changing the folder location in grid view attachment details dialog
+- Fixed bug with Polylang while moving a translation file
+- Fixed bug with WPML while moving a translation file
+- Fixed bug with count cache after uploading a new file
+- Fixed performance bug with the count cache
+- (developers only) Added API function wp_rml_create_shortcuts()
+- (developers only) Added API function wp_rml_created_shortcuts_last_ids()
+- (developers only) Added API function wp_attachment_ensure_source_file()
+- (developers only) Added API function wp_attachment_has_shortcuts()
+- (developers only) Added API function wp_attachment_get_shortcuts()
+- (developers only) Added API function wp_attachment_is_shortcut()
+
+25 March 2017 - Version 2.8.6 HOTFIX
+- Fixed bug with PHP < 5.6
+
+24 March 2017 - Version 2.8.5
+- Fixed bug with styles and scripts
+- Fixed bug with rearrange
+- (developers only) Minify scripts / css for prepared shortcut functionality
+
+22 March 2017 - Version 2.8.4
+- Added https://matthias-web.com as author url
+- Improved the way of rearrange mode, the folders gets expand after 700ms of hover
+- Fixed bugs with absolute pathes and slugs of folders, if you have problems, please rename the first level folders to regenerate
+- (developers only) Added getPlain() method to IFolder interface to get a normal array for the folder properties
+- (developers only) Prepared readable REST API for folders
+
+14 February 2017 - Version 2.8.3
+- Added new permission "par" to restrict the change of parent folder
+- Fixed bug with korean characters in folder names
+- Removed icon when a folder has a restriction (WP/LR)
+- (developers only) Added api/IFolder.interface.php and more API functions
+- (developers only) Improved the OOP: Added getters/setters
+- (developers only) Improved code quality by using own API functions
+
+03 February 2017 - Version 2.8.2
+- Fixed bug with migration in multisite installations
+- Fixed bug with Facebook hint in plugins site
+- (developers only) Fixed XSS vulnerability (this bug can only be used by folder creators, no visitors)
+- (developers only) Fixed bug with MLA class dependency
+
+20 January 2017 - Version 2.8.1
+- Added v2.7.2 stable for older PHP versions to the codecanyon download files
+- Fixed bug with permission system for WP/LR extension
+- Fixed bug with the migration system for WP multisite
+
+15 January 2017 - Version 2.8
+- Added more useful error messages when changing the hierarchical order of the folders
+- Added confirm dialog when you sort the files inside the folder
+- Improved the performance
+- Improved the way of relocating the folder tree (immediatly saved after relocating)
+- Improved the way of sortable folder content (galleries), now it is possible to reorder files in every folder
+- Improved naming of folders, every character is now allowed, the folder name is sanitized
+- Improved the folder metadata dialog and refresh the view if needed (button click in dialog)
+- Fixed bug while uploading a new plugin .zip file
+- (developers only) Added autoloading for php classes
+- (developers only) Added namespaces for php classes
+- (developers only) Added new abstract class for Creatable's (folders, collections, galleries, ...)
+- (developers only) Added new abstract class for Sortable's (folders, collections, galleries, ...) extends Creatable's
+- (developers only) Added folder\Root as own class
+- (developers only) Added debug mode, define('WP_DEBUG', true); and define('SCRIPT_DEBUG', true); in wp-config.php
+- (developers only) Added visible debug mode in options panel
+- (developers only) Added API function wp_rml_create_or_return_existing_id()
+- (developers only) Added API function wp_rml_structure_reset()
+- (developers only) Added admin notice for when you have PHP Version < 5.3.0
+- (developers only) Improved the whole API and added wp_rml_get_object_by_id() to get folder object
+- (developers only) Improved the split between Structure and CountCache (php classes)
+- (developers only) Improved the php code quality
+- (developers only) Removed the database table wp_realmedialibrary_order, merged with wp_realmedialibrary_posts
+- (developers only) Removed unnecessary sql query in pre_get_posts
+- (developers only) Removed bid columns in database tables and added new index
+
+10 December 2016 - Version 2.7.2
+- Added option to reset the count cache
+- Fixed bug with upload in modal window
+- Fixed count cache when moving from Unorganized to folder
+
+05 December 2016 - Version 2.7.1
+- Added the MatthiasWeb promotion dialog
+- Fixed bug with IE8
+- Fixed bug with TinyMCE editor shortcode dialog
+
+24 November 2016 - Version 2.7
+- Added natural filename sort of folders (thanks to KorbinianT)
+- Added lazy loading to folder tree, now it is only loaded from server when needed
+- Added: You can now directly upload files to a folder with a dropdown selection in media modal and "Add Media" page
+- Fixed bug with migration on multisite installation
+- Fixed bug with modal views, now it also supports lazy loading
+- Fixed bug with attachment movement helper (Move x file)
+- Fxied bug with plugin "Visual Composer Extensions All In One" and the tooltips
+- Improved the changelog file
+- (developers only) Improved the actions RML/Folder/Deleted|Renamed|Moved
+- (developers only) Fixed bug with jQuery AIO tree version when RCM is enabled
+- (developers only) Fixed bug with api method wp_attachment_folder and the default value
+- (developers only) Fixed bug with creating a new folder with new order number
+- (developers only) Prepare RML for Physical Press plugin and avoid folder names "." and ".."
+
+26 October 2016 - Version 2.6.5
+- Fixed bug with Justified Image Grid
+- Fixed bug with migration system, no image relationships were imported
+
+21 October 2016 - Version 2.6.4
+- Fixed bug while wipe of folders in multisite installation
+- Fixed bug after save in attachment details
+- Fixed problem with negative -1 count
+- Fixed bug when switching folder when on page 2 in table mode
+- Improved tabs in options panel of RML media options
+- Improved the delete behaviour of folder (files will be moved to unorganized)
+- (developers only) Added a migration system for further updates
+- (developers only) Added filter for parent root folder id (Default -1)
+- (developers only) Fixed the usage of switch_to_blog together with api functions
+- (developers only) Improved some CSS experiences (loader)
+- (developers only) Improved the save point of relationship between folder and post (own database table for relationships)
+
+25 September 2016 - Version 2.6.3
+- Improved some CSS
+- Fixed bug while bulk select and moving files
+- Fixed bug with reopening a media select dialog
+- Fixed bug with Avia / Enfold page builder
+- Fixed bug with reordering the gallery data folder
+- Removed deprecated ressource files
+
+16 September 2016 - Version 2.6.2 HOTFIX
+- Fixed database tables are not generated, now they are
+
+16 September 2016 - Version 2.6.1 HOTFIX
+- (developers only) Fixed options bug while accessing other pages
+
+15 September 2016 - Version 2.6
+- Added full compatibility with WP/LR Lightroom plugin
+- Added minified scripts / styles
+- Added option to apply an order by title, filename, ID to gallery data folders
+- Added option to disable scripts/styles on frontend viewing
+- Added finnish translation (Thanks to Antti!)
+- Fixed Enfold / Avia media picker bug (Thanks to Josh!)
+- Fixed Thickbox bug while logged out
+- Improved load performance
+- Improved the order for gallery data folders
+- (developers only) Added option for folders "restrict"
+- (developers only) Added a minified permission system so 3rd party plugins can restrict folders interactions
+
+19 August 2016 - Version 2.5.5
+- Fixed capability bug while logged out
+- (developers only) Added Javascript polyfill's to avoid browser incompatibility
+- (developers only) Fixed bug for crashed safari browser
+
+08 August 2016 - Version 2.5.4
+- Added option to remove advertisement links
+- Fixed "Edit selection" bug while inserting media to post
+
+21 July 2016 - Version 2.5.3
+- (developers only) Fixed media.comparator bug
+- (developers only) Fixed bugs with Easy Digital Downloads plugin
+- (developers only) Fixed String.prototype problems
+
+11 July 2016 - Version 2.5.2
+- Added fixed toolbar while scrolling in media library
+- Fixed problems with plugin "Formidable Forms"
+- Fixed resize bug
+- (developers only) Fixed WP query database notices in error log
+- (developers only) Fixed count bug when many folders exist (performed SQL statement)
+- (developers only) Improved API, wp_rml_create() now returns false or a string error array, on success it return an int (ID)
+
+10 July 2016 - Version 2.5.1 HOTFIX
+- Fixed shortcode builder [folder-gallery] did not work
+
+03 July 2016 - Version 2.5
+- Added folder tree to insert media dialog
+- (developers only) Complete recoding of javascript code
+
+20 June 2016 - Version 2.4.2
+- Fixed TinyMCE bug when not admin
+- Fixed style issues
+- (developers only) Fixed PHP < 5.3 Bug with func_get_args
+
+20 March 2016 - Version 2.4.1 HOTFIX
+- Fixed website is empty because javascript occurs an error
+
+10 March 2016 - Version 2.4
+- Added "Reamining time" and bytes/s in uploader
+- Added order mode in galleries
+- Added warning when moving files from "All Files"
+- Improved move in table list mode (no page refresh)
+- Improved ux styling (uploader, tree, tree in upload media dialog)
+- Improved options panel in Settings > Media
+- Fixed theme preview when plugin is active
+- Fixed hidden folder nodes on safari browser
+- Fixed usage of front-end editor in BeaverBuilder and Visual Composer
+- (developers only) Added custom fields (meta data) for folders (see inc/api/meta.php)
+- (developers only) Added custom field: cover image + description (not activated as standard, used in JIG)
+- (developers only) Fixed admin_footer problem when a plugin removes styles and javascript of RML
+- (developers only) Fixed database queries to avoid long load time on dashboard
+- (developers only) Fixed bug pre_get_posts
+
+10 March 2016 - Version 2.3
+- Added compatibility with JUSTIFIED IMAGE GRID
+- Added resizable container width
+- Added option to wipe all settings and releations
+- Added spanish translation - by Ana Ayelén Martínez. http://caribdisweb.com/
+- Fixed edit mode when creating a new folder
+- Fixed default order in folder gallery
+- Fixed UX bugs (draggable, droppable, sortable)
+- Fixed sticky sidebar
+- (developers only) Added "slug" and "absolute" to database table
+- (developers only) Added / updated api
+
+26 Feburary 2016 - Version 2.2.3
+- Added Finnish translation (thanks to palvelu)
+- Added more attractive alerts and prompt windows
+- Fixed visual bugs
+- Fixed delete bug => when folder is deleted, switch view to root
+- Fixed upload percentage issue
+- Fixed live update of folder count
+- Fixed upload in "Insert media" dialog => file is now in correct folder
+- Fixed drag and drop experience
+- Moved folder gallery button above visual editor into visual editor
+- (developers only) added more actions and filters
+- (developers only) added javascript actions (window.rml.hooks)
+- (developers only) changed javascript function names
+- (developers only) changed localize javascript variables
+
+20 January 2016 - Version 2.2.2 HOTFIX
+- Bugfix error in creating a folder gallery
+
+17 January 2016 - Version 2.2.1
+- Added facebook advert on plugin activation
+- Improved restyled upload window
+- Fixed font awesome bug
+- (developers only) added filters and actions
+- (developers only) added three more api functions
+
+29 December - Version 2.2
+- Added sticky container when scrolling
+- Added collection and galleries folder types
+- Added collapsable folders
+- Added left infos about folder structure
+- Added option to hide upload preview (for slow loading pc's)
+- Fixed conditional tag to create / sort items
+- Fixed count bug (WPML)
+- Fixed duplicate name
+- (developers only) Added API functions (look inc/api/)
+- (developers only) Outsourced javascript functions
+- (developers only) Fixed AJAX bug
+- (developers only) PHP Code rewritten (better split in view and structure)
+- (developers only) PHP Code documentation improved
+
+22 November - Version 2.1.2
+- Added french translation (thanks to Youpain)
+- Fixed rename bug
+- Fixed count bug when WPML in usage
+
+13 November 2015 - Version 2.1.1
+- (developers only) Removed unnecessary code
+- (developers only) Fixed jquery conflict
+
+07 November 2015 - Version 2.1
+- Added multisite compatibility
+- Fixed correct sorting (not alphabetic)
+
+03 November 15 - Version 2.0
+- (developers only) Support PHP version < 5.4
+
+02 November 15 - Version 1.3
+- Added nice uploading to folder
+
+29 October 15 - Version 1.2
+- Added notice about the alphabetic sorting
+- (developers only) Fixed problems with RevSlider >= 5.0
+- (developers only) Fixed body class for grid mode (added Javascript methode)
+
+21 October 15 - Version 1.1
+- Fixed moving in list table
+- Fixed style (drag and drop helper)
+- Removed limit of folder gallery images
+- (developers only) Fixed pre_get_posts appending meta_query
+- (developers only) Added pre_get_posts capability check
+
+16 October 15 - Version 1.0.1
+- Improved rename without window reload
+- Improved delete without window reload
+- Fixed https:// resources for css and js files
+
+9 October 2015 - Version 1.0
+- Initial Release

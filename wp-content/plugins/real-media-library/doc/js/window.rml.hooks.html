@@ -1,0 +1,6813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: hooks</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: hooks</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>window.rml.hooks</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Hook System for Real Media Library plugin.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+	
+	
+	
+	
+	
+	
+	
+	<!-- CUSTOM QUICK REFERENCE !-->
+	
+	<h3 class="subsection-title">Quick reference</h3>
+	<ul class="quick-reference">
+	
+	<!-- / CUSTOM QUICK REFERENCE !-->
+	<li><h6>Methods<h6></li>
+					<li><a href="#.call"><span class="type-signature">(static) </span>call<span class="signature">(name, args, context<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></a></li>
+			
+					<li><a href="#.exists"><span class="type-signature">(static) </span>exists<span class="signature">(name)</span><span class="type-signature"></span></a></li>
+			
+					<li><a href="#.register"><span class="type-signature">(static) </span>register<span class="signature">(name, callback)</span><span class="type-signature"></span></a></li>
+			
+	<li><h6>Events<h6></li>
+		
+            <li><a href="#event:action/$action">action/$action</a></li>
+        
+            <li><a href="#event:action/done/$action">action/done/$action</a></li>
+        
+            <li><a href="#event:attachments/move">attachments/move</a></li>
+        
+            <li><a href="#event:attachments/moved">attachments/moved</a></li>
+        
+            <li><a href="#event:attachments/relocate">attachments/relocate</a></li>
+        
+            <li><a href="#event:attachments/relocated">attachments/relocated</a></li>
+        
+            <li><a href="#event:folder/created">folder/created</a></li>
+        
+            <li><a href="#event:folder/relocated">folder/relocated</a></li>
+        
+            <li><a href="#event:folder/removed">folder/removed</a></li>
+        
+            <li><a href="#event:folder/renamed">folder/renamed</a></li>
+        
+            <li><a href="#event:general">general</a></li>
+        
+            <li><a href="#event:grid/item/changed">grid/item/changed</a></li>
+        
+            <li><a href="#event:grid/item/removed">grid/item/removed</a></li>
+        
+            <li><a href="#event:grid/item/rendered">grid/item/rendered</a></li>
+        
+            <li><a href="#event:grid/request">grid/request</a></li>
+        
+            <li><a href="#event:grid/request/$type">grid/request/$type</a></li>
+        
+            <li><a href="#event:grid/toolbar">grid/toolbar</a></li>
+        
+            <li><a href="#event:grid/toolbar/default">grid/toolbar/default</a></li>
+        
+            <li><a href="#event:grid/toolbar/filters">grid/toolbar/filters</a></li>
+        
+            <li><a href="#event:metadata/dialog">metadata/dialog</a></li>
+        
+            <li><a href="#event:metadata/loaded">metadata/loaded</a></li>
+        
+            <li><a href="#event:metadata/save/$status">metadata/save/$status</a></li>
+        
+            <li><a href="#event:metadata/tab">metadata/tab</a></li>
+        
+            <li><a href="#event:ready">ready</a></li>
+        
+            <li><a href="#event:ready/ML">ready/ML</a></li>
+        
+            <li><a href="#event:tree/afterInit">tree/afterInit</a></li>
+        
+            <li><a href="#event:tree/afterInit/$listMode">tree/afterInit/$listMode</a></li>
+        
+            <li><a href="#event:tree/afterInit/ML">tree/afterInit/ML</a></li>
+        
+            <li><a href="#event:tree/afterInit/ML/$listMode">tree/afterInit/ML/$listMode</a></li>
+        
+            <li><a href="#event:tree/afterInit/modal">tree/afterInit/modal</a></li>
+        
+            <li><a href="#event:tree/custom">tree/custom</a></li>
+        
+            <li><a href="#event:tree/custom/rml-list-$inputName">tree/custom/rml-list-$inputName</a></li>
+        
+            <li><a href="#event:tree/prepare/aioSettings">tree/prepare/aioSettings</a></li>
+        
+            <li><a href="#event:tree/prepare/aioSettings/$listMode">tree/prepare/aioSettings/$listMode</a></li>
+        
+            <li><a href="#event:tree/prepare/aioSettings/modal">tree/prepare/aioSettings/modal</a></li>
+        
+            <li><a href="#event:tree/prepare/ML">tree/prepare/ML</a></li>
+        
+            <li><a href="#event:tree/prepare/modal">tree/prepare/modal</a></li>
+        
+            <li><a href="#event:tree/refresh">tree/refresh</a></li>
+        
+            <li><a href="#event:tree/switch">tree/switch</a></li>
+        
+            <li><a href="#event:uploader/BeforeUpload">uploader/BeforeUpload</a></li>
+        
+            <li><a href="#event:uploader/FilesAddedSingle">uploader/FilesAddedSingle</a></li>
+        
+            <li><a href="#event:uploader/init">uploader/init</a></li>
+        
+            <li><a href="#event:uploader/success">uploader/success</a></li>
+        
+            <li><a href="#event:uploader/UploadProgress">uploader/UploadProgress</a></li>
+        
+            <li><a href="#event:usersettings/loaded">usersettings/loaded</a></li>
+        
+            <li><a href="#event:usersettings/save/$status">usersettings/save/$status</a></li>
+        
+    
+	</ul>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".call"><span class="type-signature">(static) </span>call<span class="signature">(name, args, context<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Execute functions hooked on a specific action hook.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The name of the event. Just have a look at the doc events or create your own.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;mixed></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The arguments passed to the callback</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The context passed to the callback</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".exists"><span class="type-signature">(static) </span>exists<span class="signature">(name)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Checks if a specific action hook exists.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The name of the event. Just have a look at the doc events or create your own.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".register"><span class="type-signature">(static) </span>register<span class="signature">(name, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Hooks a function on to a specific action.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The name of the event. Just have a look at the doc events.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The callback with the arguments passed by the .call function. The last argument is jQuery ($)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+        <h3 class="subsection-title">Events</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:action/$action">action/$action</h4>
+
+    
+
+
+
+<div class="description">
+    Action buttons are buttons in the folder details or in the RML option page.
+With this hook you can modify the post data for a specific action. $action can
+be replaced with the data-action attribute of the button.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>jQuery</li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>post</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The post data</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:action/done/$action">action/done/$action</h4>
+
+    
+
+
+
+<div class="description">
+    Action button is pressed and the response of server is available. $action can
+be replaced with the data-action attribute of the button.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>jQuery</li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>post</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The post data</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>response</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The response of the server</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:attachments/move">attachments/move</h4>
+
+    
+
+
+
+<div class="description">
+    Move or copy attachments to a folder. This hook is called before server request.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ids</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;int></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The attachment ids to move</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>folderId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The destination folder id</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isShortcut</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">True if the attachments are copied to the destination folder</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:attachments/moved">attachments/moved</h4>
+
+    
+
+
+
+<div class="description">
+    Attachments are moved or copied to a folder.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ids</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;int></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The attachment ids to move</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>folderId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The destination folder id</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isShortcut</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">True if the attachments are copied to the destination folder</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:attachments/relocate">attachments/relocate</h4>
+
+    
+
+
+
+<div class="description">
+    The user wants to relocate an attachment within a folder. This hook is called before the request to the server.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>folderObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">jQuery</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The a-tag folder object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attachmentId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The attachment id which is relocated</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nextId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The new attachment id next to attachmentId</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lastId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The last id of the visibile attachments (if pagination has no reached all pages yet)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">event</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The drag event</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ui</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The drag event ui</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:attachments/relocated">attachments/relocated</h4>
+
+    
+
+
+
+<div class="description">
+    The user has relocated an attachment within a folder.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>folderObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">jQuery</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The a-tag folder object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The data sent to the server</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>response</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The response from the server</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:folder/created">folder/created</h4>
+
+    
+
+
+
+<div class="description">
+    A folder is created and available in the tree view.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:folder/relocated">folder/relocated</h4>
+
+    
+
+
+
+<div class="description">
+    The folder hierarchy is changed and a folder is relocated. The arguments passed
+to this event are the same as the callback function of <a href="allInOneTree.html">allInOneTree</a> "onRearrangeRelocate".
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:folder/removed">folder/removed</h4>
+
+    
+
+
+
+<div class="description">
+    A folder is removed.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The folder id</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:folder/renamed">folder/renamed</h4>
+
+    
+
+
+
+<div class="description">
+    A folder is renamed.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>folderId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The folder id</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>newName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The new name for the folder</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>slug</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The new slug for the folder</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:general">general</h4>
+
+    
+
+
+
+<div class="description">
+    This first fired event. It is not similar to jQuery(document).ready().
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:grid/item/changed">grid/item/changed</h4>
+
+    
+
+
+
+<div class="description">
+    A grid item is changed (change, reset, add, remove).
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>wp.media.view.AttachmentsBrowser</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>model</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>collection</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:grid/item/removed">grid/item/removed</h4>
+
+    
+
+
+
+<div class="description">
+    A grid item is removed.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>wp.media.view.AttachmentsBrowser</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>model</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>collection</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:grid/item/rendered">grid/item/rendered</h4>
+
+    
+
+
+
+<div class="description">
+    A grid item is rendered.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>wp.media.view.Attachment.Library</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>el</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">jQuery</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The jQuery element</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>model</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The backbone model for the library</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:grid/request">grid/request</h4>
+
+    
+
+
+
+<div class="description">
+    Modify the request for a folder. Arguments passed to the hook are same
+as jQuery.ajaxPreFilter callback retrieves.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:grid/request/$type">grid/request/$type</h4>
+
+    
+
+
+
+<div class="description">
+    Modify the request for a folder type. Arguments passed to the hook are same
+as jQuery.ajaxPreFilter callback retrieves.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:grid/toolbar">grid/toolbar</h4>
+
+    
+
+
+
+<div class="description">
+    Before the grid toolbar gets initialized.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:grid/toolbar/default">grid/toolbar/default</h4>
+
+    
+
+
+
+<div class="description">
+    Modify the default start up folder.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>wp.media.view.AttachmentFilters.RML</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>filters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The filters for the attachment toolbar</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">Initially load another folder for startup</p>
+    
+    <pre class="prettyprint"><code>window.rml.hooks.register("grid/toolbar/default", function(filters) {
+	this.model.set(filters["my-slug"].props, { silent: false } );
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:grid/toolbar/filters">grid/toolbar/filters</h4>
+
+    
+
+
+
+<div class="description">
+    Modify the attachment toolbar filters.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>wp.media.view.AttachmentFilters.RML</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>filters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The filters for the attachment toolbar</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:metadata/dialog">metadata/dialog</h4>
+
+    
+
+
+
+<div class="description">
+    The folder details dialog is parsed.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>response</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The HTML response from the server</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The folder id</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The folder name</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:metadata/loaded">metadata/loaded</h4>
+
+    
+
+
+
+<div class="description">
+    The user opens the folder details and the folder data is loaded from the 
+server. The folder metadata is not yet parsed to the dialog HTML.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>response</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The HTML response from the server</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The folder id</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The folder name</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:metadata/save/$status">metadata/save/$status</h4>
+
+    
+
+
+
+<div class="description">
+    The user has saved the metadata in the folder details. $status can be replaced with
+"success" or "failed".
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>response</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The response from the server after saved</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fields</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The POST query</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sweet</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">jQuery</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dialog</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The name of the folder</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:metadata/tab">metadata/tab</h4>
+
+    
+
+
+
+<div class="description">
+    The user switched to another tab view in the user settings / folder meta dialog.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>jQuery</li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The tab key</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>li</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">jQuery</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The li element</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:ready">ready</h4>
+
+    
+
+
+
+<div class="description">
+    DOM-Ready hook.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:ready/ML">ready/ML</h4>
+
+    
+
+
+
+<div class="description">
+    DOM-Ready hook for "Media Library" page (upload.php).
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/afterInit">tree/afterInit</h4>
+
+    
+
+
+
+<div class="description">
+    This hooks is called after a tree is initialized.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/afterInit/$listMode">tree/afterInit/$listMode</h4>
+
+    
+
+
+
+<div class="description">
+    This hook is called after a tree is initialized in a given view. $listMode
+can be replaced with "grid" or "list".
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/afterInit/ML">tree/afterInit/ML</h4>
+
+    
+
+
+
+<div class="description">
+    This hook is called after a tree is initialized in the default
+media library page of wordpress backend (upload.php).
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/afterInit/ML/$listMode">tree/afterInit/ML/$listMode</h4>
+
+    
+
+
+
+<div class="description">
+    This hook is called after a tree is initialized in the default
+media library page of wordpress backend (upload.php) for a given view.
+$listMode can be replaced with "grid" or "list".
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/afterInit/modal">tree/afterInit/modal</h4>
+
+    
+
+
+
+<div class="description">
+    This hook is called after a tree is initialized in the "Insert media"-dialog.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/custom">tree/custom</h4>
+
+    
+
+
+
+<div class="description">
+    This hook is fired for every new custom list created with PHP
+function wp_rml_select_tree().
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">jQuery</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The tree</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/custom/rml-list-$inputName">tree/custom/rml-list-$inputName</h4>
+
+    
+
+
+
+<div class="description">
+    This hook is fired for a specific new custom list created with PHP
+function wp_rml_select_tree(). The $inputName can be replaced with the 
+first parameter $inputName of wp_rml_select_tree() function.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">jQuery</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The tree</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/prepare/aioSettings">tree/prepare/aioSettings</h4>
+
+    
+
+
+
+<div class="description">
+    The tree is not initialized yet through the <a href="allInOneTree.html">allInOneTree</a> plugin. Here
+you can modify the options for the jQuery plugin.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>jQuery</li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>aioSettings</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The settings for the jQuery plugin</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/prepare/aioSettings/$listMode">tree/prepare/aioSettings/$listMode</h4>
+
+    
+
+
+
+<div class="description">
+    The tree is not initialized yet through the <a href="allInOneTree.html">allInOneTree</a> plugin. Here
+you can modify the options for the jQuery plugin. The $listMode can be
+replaced by 'grid' or 'list'.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>jQuery</li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>aioSettings</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The settings for the jQuery plugin</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/prepare/aioSettings/modal">tree/prepare/aioSettings/modal</h4>
+
+    
+
+
+
+<div class="description">
+    The tree is not initialized yet through the <a href="allInOneTree.html">allInOneTree</a> plugin. Here
+you can modify the options for the jQuery plugin. This hook is explicit called
+in a modal window ("Insert media"-dialog).
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>jQuery</li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>aioSettings</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The settings for the jQuery plugin</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/prepare/ML">tree/prepare/ML</h4>
+
+    
+
+
+
+<div class="description">
+    A tree container is placed to the DOM in the Media Library page of wordpress backend (upload.php).
+But the tree is not initialized yet through the <a href="allInOneTree.html">allInOneTree</a> plugin.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>jQuery</li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/prepare/modal">tree/prepare/modal</h4>
+
+    
+
+
+
+<div class="description">
+    A tree container is placed to the DOM in a modal view ("Insert media"-dialog).
+But the tree is not initialized yet through the <a href="allInOneTree.html">allInOneTree</a> plugin.
+The context passed to the hook functions is the media modal window object (.media-modal).
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>jQuery</li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>container</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">jQuery</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The container</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isAlreadyLoaded</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The modal window gets re-opened</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>customSelectToChange</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The query selector for the backbone select dropdown of the RML filter</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/refresh">tree/refresh</h4>
+
+    
+
+
+
+<div class="description">
+    The tree button "Refresh" is pressed.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:tree/switch">tree/switch</h4>
+
+    
+
+
+
+<div class="description">
+    The user opens a folder in the tree. This hook is only called in grid mode!
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">jQuery</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The a-tag object in the tree</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The folder id</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The type of the folder</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:uploader/BeforeUpload">uploader/BeforeUpload</h4>
+
+    
+
+
+
+<div class="description">
+    Before a file gets uploaded.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>wp.Uploader</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>uploader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The uploader</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The file</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:uploader/FilesAddedSingle">uploader/FilesAddedSingle</h4>
+
+    
+
+
+
+<div class="description">
+    The uploader is initialized.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>wp.Uploader</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>uploader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The uploader</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The file</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>active</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The active folder tree object (a-tag)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The opts for the uploader (can be modified by a hook)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:uploader/init">uploader/init</h4>
+
+    
+
+
+
+<div class="description">
+    The uploader is initialized.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>wp.Uploader</li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:uploader/success">uploader/success</h4>
+
+    
+
+
+
+<div class="description">
+    A file is successfully uploaded.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>wp.Uploader</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>attachment</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The file attachment</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:uploader/UploadProgress">uploader/UploadProgress</h4>
+
+    
+
+
+
+<div class="description">
+    A files is currently uploading.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>wp.Uploader</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>uploader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The uploader</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The file</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:usersettings/loaded">usersettings/loaded</h4>
+
+    
+
+
+
+<div class="description">
+    The user opens the general settings. The user settings fields are not yet parsed to the dialog HTML.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>response</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The HTML response from the server</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="event:usersettings/save/$status">usersettings/save/$status</h4>
+
+    
+
+
+
+<div class="description">
+    The user has saved the metadata in the general user settings. $status can be replaced with
+"success" or "failed".
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>response</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The response from the server after saved</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fields</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The POST query</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sweet</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">jQuery</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The dialog</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="allInOneTree.html">allInOneTree</a></li></ul><h3>Events</h3><ul><li><a href="window.rml.hooks.html#event:action/$action">action/$action</a></li><li><a href="window.rml.hooks.html#event:action/done/$action">action/done/$action</a></li><li><a href="window.rml.hooks.html#event:attachments/move">attachments/move</a></li><li><a href="window.rml.hooks.html#event:attachments/moved">attachments/moved</a></li><li><a href="window.rml.hooks.html#event:attachments/relocate">attachments/relocate</a></li><li><a href="window.rml.hooks.html#event:attachments/relocated">attachments/relocated</a></li><li><a href="window.rml.hooks.html#event:folder/created">folder/created</a></li><li><a href="window.rml.hooks.html#event:folder/relocated">folder/relocated</a></li><li><a href="window.rml.hooks.html#event:folder/removed">folder/removed</a></li><li><a href="window.rml.hooks.html#event:folder/renamed">folder/renamed</a></li><li><a href="window.rml.hooks.html#event:general">general</a></li><li><a href="window.rml.hooks.html#event:grid/item/changed">grid/item/changed</a></li><li><a href="window.rml.hooks.html#event:grid/item/removed">grid/item/removed</a></li><li><a href="window.rml.hooks.html#event:grid/item/rendered">grid/item/rendered</a></li><li><a href="window.rml.hooks.html#event:grid/request">grid/request</a></li><li><a href="window.rml.hooks.html#event:grid/request/$type">grid/request/$type</a></li><li><a href="window.rml.hooks.html#event:grid/toolbar">grid/toolbar</a></li><li><a href="window.rml.hooks.html#event:grid/toolbar/default">grid/toolbar/default</a></li><li><a href="window.rml.hooks.html#event:grid/toolbar/filters">grid/toolbar/filters</a></li><li><a href="window.rml.hooks.html#event:metadata/dialog">metadata/dialog</a></li><li><a href="window.rml.hooks.html#event:metadata/loaded">metadata/loaded</a></li><li><a href="window.rml.hooks.html#event:metadata/save/$status">metadata/save/$status</a></li><li><a href="window.rml.hooks.html#event:metadata/tab">metadata/tab</a></li><li><a href="window.rml.hooks.html#event:ready">ready</a></li><li><a href="window.rml.hooks.html#event:ready/ML">ready/ML</a></li><li><a href="window.rml.hooks.html#event:tree/afterInit">tree/afterInit</a></li><li><a href="window.rml.hooks.html#event:tree/afterInit/$listMode">tree/afterInit/$listMode</a></li><li><a href="window.rml.hooks.html#event:tree/afterInit/ML">tree/afterInit/ML</a></li><li><a href="window.rml.hooks.html#event:tree/afterInit/ML/$listMode">tree/afterInit/ML/$listMode</a></li><li><a href="window.rml.hooks.html#event:tree/afterInit/modal">tree/afterInit/modal</a></li><li><a href="window.rml.hooks.html#event:tree/custom">tree/custom</a></li><li><a href="window.rml.hooks.html#event:tree/custom/rml-list-$inputName">tree/custom/rml-list-$inputName</a></li><li><a href="window.rml.hooks.html#event:tree/prepare/aioSettings">tree/prepare/aioSettings</a></li><li><a href="window.rml.hooks.html#event:tree/prepare/aioSettings/$listMode">tree/prepare/aioSettings/$listMode</a></li><li><a href="window.rml.hooks.html#event:tree/prepare/aioSettings/modal">tree/prepare/aioSettings/modal</a></li><li><a href="window.rml.hooks.html#event:tree/prepare/ML">tree/prepare/ML</a></li><li><a href="window.rml.hooks.html#event:tree/prepare/modal">tree/prepare/modal</a></li><li><a href="window.rml.hooks.html#event:tree/refresh">tree/refresh</a></li><li><a href="window.rml.hooks.html#event:tree/switch">tree/switch</a></li><li><a href="window.rml.hooks.html#event:uploader/BeforeUpload">uploader/BeforeUpload</a></li><li><a href="window.rml.hooks.html#event:uploader/FilesAddedSingle">uploader/FilesAddedSingle</a></li><li><a href="window.rml.hooks.html#event:uploader/init">uploader/init</a></li><li><a href="window.rml.hooks.html#event:uploader/success">uploader/success</a></li><li><a href="window.rml.hooks.html#event:uploader/UploadProgress">uploader/UploadProgress</a></li><li><a href="window.rml.hooks.html#event:usersettings/loaded">usersettings/loaded</a></li><li><a href="window.rml.hooks.html#event:usersettings/save/$status">usersettings/save/$status</a></li></ul><h3>Namespaces</h3><ul><li><a href="window.rml.hooks.html">window.rml.hooks</a></li></ul><h3>Externals</h3><ul><li><a href="external-_jQuery.fn.hcSticky_.html">jQuery.fn.hcSticky</a></li><li><a href="external-_jQuery.fn.nestedSortable_.html">jQuery.fn.nestedSortable</a></li><li><a href="external-_jQuery.fn.tooltipster_.html">jQuery.fn.tooltipster</a></li><li><a href="external-_jQuery.fn_.html">jQuery.fn</a></li><li><a href="external-_jQuery.ui_.html">jQuery.ui</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

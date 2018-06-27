@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Interface MatthiasWeb\RealMediaLibrary\api\IFolderContent | PHPDoc Real Media Library</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?70c1d062672daa3f906b72e4f5d03d4bc5c4174d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">PHPDoc Real Media Library</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html" title="Summary of MatthiasWeb\RealMediaLibrary\api"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.html">
+							MatthiasWeb<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.html">
+							RealMediaLibrary<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html">
+							api						</a>
+							</li>
+								</ul></li></ul></li>
+					<li>
+						<a href="namespace-None.html">
+							None						</a>
+							</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">IFolder</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html">IFolderActions</a></li>
+				<li class="active"><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html">IFolderContent</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IMetadata.html">IMetadata</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IStructure.html">IStructure</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IUserSettings.html">IUserSettings</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Interface IFolderContent</h1>
+
+
+	<div class="description">
+	<p>This interface provides elementary action methods for folder content. All folder
+types (Folder, Collection, Gallery, ...) have implemented this interface.
+Also the root ("Unorganized") is a folder and implements this interface.</p>
+	</div>
+
+
+
+
+
+	<div>
+		<h3>Direct known implementers</h3>
+		<p class="elementList">
+			<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">MatthiasWeb\RealMediaLibrary\api\IFolder</a></code>
+		</p>
+	</div>
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-MatthiasWeb.html">MatthiasWeb</a>\<a href="namespace-MatthiasWeb.RealMediaLibrary.html">RealMediaLibrary</a>\<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html">api</a><br>
+		
+
+				<b>Since:</b>
+				3.3.1<br>
+			<b>Located at</b> IFolderContent.interface.php		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="contentOrder" id="_contentOrder">
+
+			<td class="attributes"><code>
+				 public 
+				true
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_contentOrder">#</a>
+			<code>contentOrder( <span> <var>$attachmentId</var></span>, <span> <var>$nextId</var></span>, <span> <var>$lastIdInView</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				<p>See API function for more information.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>See API function for more information.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						true
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						Exception
+					</div>
+
+					<h4>See</h4>
+					<div class="list">
+							<code><a href="function-wp_attachment_order_update.html">wp_attachment_order_update()</a></code><br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="contentIndex" id="_contentIndex">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_contentIndex">#</a>
+			<code>contentIndex( <span>boolean <var>$delete</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				<p>Index the order table.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Index the order table.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$delete</var></dt>
+						<dd>Delete the old order</dd>
+					</dl></div>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							boolean<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="contentReindex" id="_contentReindex">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_contentReindex">#</a>
+			<code>contentReindex( )</code>
+
+			<div class="description short">
+				<p>This function retrieves the order of the order
+table and removes empty spaces, for example:</p>
+
+<pre><span class="php-num">0</span> <span class="php-num">1</span> <span class="php-num">5</span> <span class="php-num">7</span> <span class="php-num">8</span> <span class="php-num">9</span> <span class="php-num">10</span> =&gt;
+<span class="php-num">0</span> <span class="php-num">1</span> <span class="php-num">2</span> <span class="php-num">3</span> <span class="php-num">4</span> <span class="php-num">5</span> <span class="php-num">6</span></pre>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>This function retrieves the order of the order
+table and removes empty spaces, for example:</p>
+
+<pre><span class="php-num">0</span> <span class="php-num">1</span> <span class="php-num">5</span> <span class="php-num">7</span> <span class="php-num">8</span> <span class="php-num">9</span> <span class="php-num">10</span> =&gt;
+<span class="php-num">0</span> <span class="php-num">1</span> <span class="php-num">2</span> <span class="php-num">3</span> <span class="php-num">4</span> <span class="php-num">5</span> <span class="php-num">6</span></pre>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							boolean<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="contentEnableOrder" id="_contentEnableOrder">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_contentEnableOrder">#</a>
+			<code>contentEnableOrder( )</code>
+
+			<div class="description short">
+				<p>Enable the order functionlity for this folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Enable the order functionlity for this folder.</p>
+
+
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							IFolderContent::getContentCustomOrder()<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							boolean<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="contentDeleteOrder" id="_contentDeleteOrder">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_contentDeleteOrder">#</a>
+			<code>contentDeleteOrder( )</code>
+
+			<div class="description short">
+				<p>Deletes the complete order for this folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Deletes the complete order for this folder.</p>
+
+
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							IFolderContent::getContentCustomOrder()<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							boolean<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="contentRestoreOldCustomNr" id="_contentRestoreOldCustomNr">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_contentRestoreOldCustomNr">#</a>
+			<code>contentRestoreOldCustomNr( )</code>
+
+			<div class="description short">
+				<p>Restore the current order number to the old custom order number.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Restore the current order number to the old custom order number.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							boolean<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isContentCustomOrderAllowed" id="_isContentCustomOrderAllowed">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isContentCustomOrderAllowed">#</a>
+			<code>isContentCustomOrderAllowed( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getContentCustomOrder" id="_getContentCustomOrder">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getContentCustomOrder">#</a>
+			<code>getContentCustomOrder( )</code>
+
+			<div class="description short">
+				<p>The content custom order defines the state of the content order functionality:</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The content custom order defines the state of the content order functionality:</p>
+
+<pre><span class="php-num">0</span> = No content order <span class="php-keyword2">defined</span>
+<span class="php-num">1</span> = Content order is enabled
+<span class="php-num">2</span> = Custom content order is not allowed</pre>
+
+
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							IFolderContent::isContentCustomOrderAllowed()<br>
+							IFolderContent::contentEnableOrder()<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							integer The content custom order value<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAttachmentNextTo" id="_getAttachmentNextTo">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAttachmentNextTo">#</a>
+			<code>getAttachmentNextTo( <span>integer <var>$attachmentId</var></span> )</code>
+
+			<div class="description short">
+				<p>Get the next attachment id for a specific attachment. It returns false if
+the attachment is at the end or the folder has no custom content order.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the next attachment id for a specific attachment. It returns false if
+the attachment is at the end or the folder has no custom content order.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$attachmentId</var></dt>
+						<dd>The attachment id</dd>
+					</dl></div>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							boolean Int or false<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getContentOrderNumbers" id="_getContentOrderNumbers">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getContentOrderNumbers">#</a>
+			<code>getContentOrderNumbers( <span>boolean <var>$fromCache</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$indexMode</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				<p>Get the whole order table.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the whole order table.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$fromCache</var></dt>
+						<dd>load the data from the cache</dd>
+						<dt><var>$indexMode</var></dt>
+						<dd>the return is an indexed array with attachment id key</dd>
+					</dl></div>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							boolean|int[]<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getContentAggregationNr" id="_getContentAggregationNr">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getContentAggregationNr">#</a>
+			<code>getContentAggregationNr( <span>string <var>$function</var> = <span class="php-quote">&quot;MAX&quot;</span></span> )</code>
+
+			<div class="description short">
+				<p>Gets the biggest order number;</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Gets the biggest order number;</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$function</var></dt>
+						<dd>The SQL aggregation function (MIN or MAX)</dd>
+					</dl></div>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							integer<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getContentNrOf" id="_getContentNrOf">
+
+			<td class="attributes"><code>
+				 public 
+				integer|boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getContentNrOf">#</a>
+			<code>getContentNrOf( <span>integer <var>$attachmentId</var></span> )</code>
+
+			<div class="description short">
+				<p>Get the order number for a specific attachment in this folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the order number for a specific attachment in this folder.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$attachmentId</var></dt>
+						<dd>The attachment id</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						integer|boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getContentOldCustomNrCount" id="_getContentOldCustomNrCount">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getContentOldCustomNrCount">#</a>
+			<code>getContentOldCustomNrCount( )</code>
+
+			<div class="description short">
+				<p>Get the old custom order number count so we can decide if already available.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the old custom order number count so we can decide if already available.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							int Count<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PHPDoc Real Media Library API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

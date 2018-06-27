@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Interface MatthiasWeb\RealMediaLibrary\api\IFolder | PHPDoc Real Media Library</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?70c1d062672daa3f906b72e4f5d03d4bc5c4174d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">PHPDoc Real Media Library</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html" title="Summary of MatthiasWeb\RealMediaLibrary\api"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.html">
+							MatthiasWeb<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.html">
+							RealMediaLibrary<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html">
+							api						</a>
+							</li>
+								</ul></li></ul></li>
+					<li>
+						<a href="namespace-None.html">
+							None						</a>
+							</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li class="active"><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">IFolder</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html">IFolderActions</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html">IFolderContent</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IMetadata.html">IMetadata</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IStructure.html">IStructure</a></li>
+				<li><a href="class-MatthiasWeb.RealMediaLibrary.api.IUserSettings.html">IUserSettings</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Interface IFolder</h1>
+
+
+	<div class="description">
+	<p>This interface provides elementary getter and setter methods for folder objects. All folder
+types (Folder, Collection, Gallery, ...) have implemented this interface.
+Also the root ("Unorganized") is a folder and implements this interface. Usually,
+the root acts as "-1" but you should use the <code><a href="function-_wp_rml_root.html">_wp_rml_root()</a></code> function to get the
+root id. If this interface does not provide an expected method, yet, have a look at the
+other API files. For example to create a folder use <code><a href="function-wp_rml_create.html">wp_rml_create()</a></code>.</p>
+
+<p><strong>Check if a variable is surely a IFolder interface object:</strong></p>
+
+<pre><span class="php-var">$folder</span> = wp_rml_get_object_by_id(<span class="php-num">5</span>);
+<span class="php-keyword1">if</span> (is_rml_folder(<span class="php-var">$folder</span>)) {
+     <span class="php-comment">// It is an interface implementation of IFolder</span>
+}</pre>
+
+<h3>Register own folder type:</h3>
+
+<p>You can create your own implementation of a folder type (Gallery, Collection, Root, ...)
+just have a look at the wp-content/plugins/real-media-library/inc/folder files. Here is a very basic example
+and the static methods you must create for your class:</p>
+
+<pre><span class="php-comment">/*
+ * ABSTRACT METHODS YOU MUST IMPLEMENT IN YOUR FOLDER CLASS!
+ *
+/*
+ * Creates an instance for this folder type. This line is commented out,
+ * because PHP does not support abstract static functions. Please implement
+ * this function in your folder class.
+ *
+ * @param $rowData The row data from the database row
+ * @return Instance or null
+ *
+/* public abstract static function instance($rowData); *
+
+/*
+ * (optional) If you use wp_rml_register_creatable() with the parameter $onRegister = true then
+ * this function is called in your folder type class.
+ *
+/* public abstract static function onRegister(); *
+
+/*
+ * Creates a new instance for this folder type. This line is commented out,
+ * because PHP does not support abstract static functions. Please implement
+ * this function in your folder class.
+ *
+ * @param $rowData The row data from the database row
+ * @throws Exception when something went wrong by creating
+ * @return Instance or null
+ * @see Creatable::persist
+ *
+/* public abstract static function create($rowData); *</span></pre>
+
+<p>Also have a look at the <code><a href="function-wp_rml_register_creatable.html">wp_rml_register_creatable()</a></code> function to register your class
+(RML_TYPE_FOLDER is an unique defined integer for your folder type):</p>
+
+<pre>wp_rml_register_creatable(RML_NS . <span class="php-quote">'\\folder\\Folder'</span>, RML_TYPE_FOLDER);</pre>
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+<b><span>MatthiasWeb\RealMediaLibrary\api\IFolder</span></b>			
+			 implements 
+				<a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html"><span>MatthiasWeb\RealMediaLibrary\api\IFolderActions</span></a>, 
+			
+				<a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html"><span>MatthiasWeb\RealMediaLibrary\api\IFolderContent</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-MatthiasWeb.html">MatthiasWeb</a>\<a href="namespace-MatthiasWeb.RealMediaLibrary.html">RealMediaLibrary</a>\<a href="namespace-MatthiasWeb.RealMediaLibrary.api.html">api</a><br>
+		
+
+				<b>See:</b>
+				<code><a href="function-wp_rml_root_childs.html">wp_rml_root_childs()</a></code><br>
+				<b>See:</b>
+				<code><a href="function-wp_rml_get_object_by_id.html">wp_rml_get_object_by_id()</a></code><br>
+				<b>See:</b>
+				<code><a href="function-wp_rml_get_by_id.html">wp_rml_get_by_id()</a></code><br>
+				<b>See:</b>
+				<code><a href="function-wp_rml_get_by_absolute_path.html">wp_rml_get_by_absolute_path()</a></code><br>
+				<b>See:</b>
+				<code><a href="function-wp_rml_objects.html">wp_rml_objects()</a></code><br>
+				<b>See:</b>
+				<code><a href="function-is_rml_folder.html">is_rml_folder()</a></code><br>
+				<b>See:</b>
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html">MatthiasWeb\RealMediaLibrary\api\IFolderActions</a></code><br>
+			<b>Located at</b> IFolder.interface.php		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="anyParentHas" id="_anyParentHas">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_anyParentHas">#</a>
+			<code>anyParentHas( <span>string <var>$column</var></span>, <span>mixed <var>$value</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$valueFormat</var> = <span class="php-quote">&quot;%s&quot;</span></span>, <span>boolean <var>$includeSelf</var> = <span class="php-keyword1">false</span></span>, <span>integer <var>$until</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Get all parents which meets a given column value or column value is not empty.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get all parents which meets a given column value or column value is not empty.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$column</var></dt>
+						<dd>The column name for the wp_realmedialibrary SQL table. "slug", "name", "absolutePath", ... This string is not escaped when you pass it through this function</dd>
+						<dt><var>$value</var></dt>
+						<dd>The value the column should have</dd>
+						<dt><var>$valueFormat</var></dt>
+						<dd>The value format for $value ($wpdb->prepare) This string is not escaped when you pass it through this function</dd>
+						<dt><var>$includeSelf</var></dt>
+						<dd>Set true to add self to list</dd>
+						<dt><var>$until</var></dt>
+						<dd>The highest allowed folder id. If null _wp_rml_root() is used</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							array folderId => columnValue, first id is the first found parent<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="anyParentHasMetadata" id="_anyParentHasMetadata">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_anyParentHasMetadata">#</a>
+			<code>anyParentHasMetadata( <span>string <var>$meta_key</var></span>, <span>mixed <var>$meta_value</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$valueFormat</var> = <span class="php-quote">&quot;%s&quot;</span></span>, <span>boolean <var>$includeSelf</var> = <span class="php-keyword1">false</span></span>, <span>integer <var>$until</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Get all parents which meets a given meta key value or meta key value is not empty.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get all parents which meets a given meta key value or meta key value is not empty.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$meta_key</var></dt>
+						<dd>The meta key name for the wp_realmedialibrary_meta SQL table. This string is not escaped when you pass it through this function</dd>
+						<dt><var>$meta_value</var></dt>
+						<dd>The value the meta key should have</dd>
+						<dt><var>$valueFormat</var></dt>
+						<dd>The value format for $value ($wpdb->prepare) This string is not escaped when you pass it through this function</dd>
+						<dt><var>$includeSelf</var></dt>
+						<dd>Set true to add self to list</dd>
+						<dt><var>$until</var></dt>
+						<dd>The highest allowed folder id. If null _wp_rml_root() is used</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							array Array with keys: id (meta_id), folderId, value (meta_value), first id is the first found parent<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="anyChildrenHas" id="_anyChildrenHas">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_anyChildrenHas">#</a>
+			<code>anyChildrenHas( <span>string <var>$column</var></span>, <span>mixed <var>$value</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$valueFormat</var> = <span class="php-quote">&quot;%s&quot;</span></span>, <span>boolean <var>$includeSelf</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				<p>Get all children which meets a given column value or column value is not empty.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get all children which meets a given column value or column value is not empty.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$column</var></dt>
+						<dd>The column name for the wp_realmedialibrary SQL table. "slug", "name", "absolutePath", ... This string is not escaped when you pass it through this function</dd>
+						<dt><var>$value</var></dt>
+						<dd>The value the column should have</dd>
+						<dt><var>$valueFormat</var></dt>
+						<dd>The value format for $value ($wpdb->prepare) This string is not escaped when you pass it through this function</dd>
+						<dt><var>$includeSelf</var></dt>
+						<dd>Set true to add self to list</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							array folderId => columnValue, first id is the first found child<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="anyChildrenHasMetadata" id="_anyChildrenHasMetadata">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_anyChildrenHasMetadata">#</a>
+			<code>anyChildrenHasMetadata( <span>string <var>$meta_key</var></span>, <span>mixed <var>$meta_value</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$valueFormat</var> = <span class="php-quote">&quot;%s&quot;</span></span>, <span>boolean <var>$includeSelf</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				<p>Get all chilren which meets a given meta key value or meta key value is not empty.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get all chilren which meets a given meta key value or meta key value is not empty.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$meta_key</var></dt>
+						<dd>The meta key name for the wp_realmedialibrary_meta SQL table. This string is not escaped when you pass it through this function</dd>
+						<dt><var>$meta_value</var></dt>
+						<dd>The value the meta key should have</dd>
+						<dt><var>$valueFormat</var></dt>
+						<dd>The value format for $value ($wpdb->prepare) This string is not escaped when you pass it through this function</dd>
+						<dt><var>$includeSelf</var></dt>
+						<dd>Set true to add self to list</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							array Array with keys: id (meta_id), folderId, value (meta_value), first id is the first found child<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="hasChildren" id="_hasChildren">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_hasChildren">#</a>
+			<code>hasChildren( <span>string <var>$name</var></span>, <span>boolean <var>$returnObject</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				<p>Checks if this folder has a children with a given name.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Checks if this folder has a children with a given name.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd>Name of folder</dd>
+						<dt><var>$returnObject</var></dt>
+						<dd>If set to true and a children with this name is found, then return the object for this folder</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3 Now it checks for a given folder name instead the slug<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							boolean<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getType" id="_getType">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getType">#</a>
+			<code>getType( )</code>
+
+			<div class="description short">
+				<p>Return the type for the given folder. For example: 0 = Folder, 1 = Collection, 2 = Gallery</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Return the type for the given folder. For example: 0 = Folder, 1 = Collection, 2 = Gallery</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							int<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAllowedChildrenTypes" id="_getAllowedChildrenTypes">
+
+			<td class="attributes"><code>
+				 public 
+				boolean|int[]
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAllowedChildrenTypes">#</a>
+			<code>getAllowedChildrenTypes( )</code>
+
+			<div class="description short">
+				<p>Get all allowed children folder types.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get all allowed children folder types.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean|int[]<br>Array with allowed types or TRUE for all types allowed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getId" id="_getId">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getId">#</a>
+			<code>getId( )</code>
+
+			<div class="description short">
+				<p>Get the folder id.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the folder id.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							int<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getParent" id="_getParent">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getParent">#</a>
+			<code>getParent( )</code>
+
+			<div class="description short">
+				<p>Get the parent folder id.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the parent folder id.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							int<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAllParents" id="_getAllParents">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAllParents">#</a>
+			<code>getAllParents( <span>integer <var>$until</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Get all parents of this folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get all parents of this folder.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$until</var></dt>
+						<dd>The highest allowed folder id. If null _wp_rml_root() is used</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							int[] Folder ids, first id is the first parent<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getName" id="_getName">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getName">#</a>
+			<code>getName( <span>boolean <var>$htmlentities</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				<p>Get the folder name.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the folder name.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$htmlentities</var></dt>
+						<dd>If true the name is returned htmlentitied for output</dd>
+					</dl></div>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							string<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getSlug" id="_getSlug">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getSlug">#</a>
+			<code>getSlug( <span>boolean <var>$force</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				<p>Returns a santitized title for the folder. If the slug is empty
+or forced to, it will be updated in the database, too.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Returns a santitized title for the folder. If the slug is empty
+or forced to, it will be updated in the database, too.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$force</var></dt>
+						<dd>Forces to regenerate the slug</dd>
+					</dl></div>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							string<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPath" id="_getPath">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPath">#</a>
+			<code>getPath( <span>string <var>$implode</var> = <span class="php-quote">&quot;/&quot;</span></span>, <span>callable <var>$map</var> = <span class="php-quote">&quot;htmlentities&quot;</span></span> )</code>
+
+			<div class="description short">
+				<p>Creates a absolute path without slugging' the names.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Creates a absolute path without slugging' the names.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$implode</var></dt>
+						<dd>Delimitter for the folder names</dd>
+						<dt><var>$map</var></dt>
+						<dd>Map the names with this function. Pass null to skip this map function</dd>
+					</dl></div>
+
+
+
+					<h4>Example</h4>
+					<div class="list">
+							<pre><span class="php-comment">// Get valid physical folder name</span>
+<span class="php-var">$folder</span>-&gt;getPath(<span class="php-quote">&quot;/&quot;</span>, <span class="php-quote">&quot;_wp_rml_sanitize_filename&quot;</span>)</pre><br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							string htmlentitied path<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOwner" id="_getOwner">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOwner">#</a>
+			<code>getOwner( )</code>
+
+			<div class="description short">
+				<p>Get the creator/owner of the folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the creator/owner of the folder.</p>
+
+
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							int ID of the user<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAbsolutePath" id="_getAbsolutePath">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAbsolutePath">#</a>
+			<code>getAbsolutePath( <span>boolean <var>$force</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				<p>Creates a absolute path. If the absolute path is empty
+or forced to, it will be updated in the database, too.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Creates a absolute path. If the absolute path is empty
+or forced to, it will be updated in the database, too.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$force</var></dt>
+						<dd>Forces to regenerate the absolute path</dd>
+					</dl></div>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							string<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getCnt" id="_getCnt">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getCnt">#</a>
+			<code>getCnt( <span>boolean <var>$forceReload</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				<p>Gets the count of the files in this folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Gets the count of the files in this folder.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$forceReload</var></dt>
+						<dd>If true the count cache gets reloaded</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3.1<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							int<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getChildren" id="_getChildren">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">MatthiasWeb\RealMediaLibrary\api\IFolder</a>[]</code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getChildren">#</a>
+			<code>getChildren( )</code>
+
+			<div class="description short">
+				<p>Get children of this folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get children of this folder.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolder.html">MatthiasWeb\RealMediaLibrary\api\IFolder</a>[]</code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOrder" id="_getOrder">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOrder">#</a>
+			<code>getOrder( )</code>
+
+			<div class="description short">
+				<p>Get the order number.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the order number.</p>
+
+
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3.1<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							int<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getMaxOrder" id="_getMaxOrder">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getMaxOrder">#</a>
+			<code>getMaxOrder( )</code>
+
+			<div class="description short">
+				<p>Get the maximal order number of the children.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the maximal order number of the children.</p>
+
+
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3.1<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							integer Max order number<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getRestrictions" id="_getRestrictions">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getRestrictions">#</a>
+			<code>getRestrictions( )</code>
+
+			<div class="description short">
+				<p>Get the restrictions of this folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the restrictions of this folder.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							string[]<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getRestrictionsCount" id="_getRestrictionsCount">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getRestrictionsCount">#</a>
+			<code>getRestrictionsCount( )</code>
+
+			<div class="description short">
+				<p>Get the count of the restrictions.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the count of the restrictions.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							int<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPlain" id="_getPlain">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPlain">#</a>
+			<code>getPlain( )</code>
+
+			<div class="description short">
+				<p>Gets a plain array with folder properties.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Gets a plain array with folder properties.</p>
+
+
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							array<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getRowData" id="_getRowData">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getRowData">#</a>
+			<code>getRowData( <span>string <var>$field</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Get the full row of the SQL query.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the full row of the SQL query.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$field</var></dt>
+						<dd>The field name</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							mixed Any object or false<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTypeName" id="_getTypeName">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTypeName">#</a>
+			<code>getTypeName( <span>string <var>$default</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Get the type name for this folder. For example: Folder, Collection, Gallery, Unorganized.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the type name for this folder. For example: Folder, Collection, Gallery, Unorganized.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$default</var></dt>
+						<dd>The default (if null "Folder" is used as default)</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3.1<br>
+					</div>
+					<h4>See</h4>
+					<div class="list">
+							Filter RML/Folder/Type/Name<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							string<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTypeDescription" id="_getTypeDescription">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTypeDescription">#</a>
+			<code>getTypeDescription( <span>string <var>$default</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Get the type description for this folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the type description for this folder.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$default</var></dt>
+						<dd>The default (if null folder description is used as default)</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3.1<br>
+					</div>
+					<h4>See</h4>
+					<div class="list">
+							Filter RML/Folder/Type/Description<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							string<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getTypeIcon" id="_getTypeIcon">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getTypeIcon">#</a>
+			<code>getTypeIcon( <span>string <var>$default</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Get the type icon for this folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the type icon for this folder.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$default</var></dt>
+						<dd>The default (if null folder icon is used as default)</dd>
+					</dl></div>
+
+
+
+					<h4>Since</h4>
+					<div class="list">
+							3.3.1<br>
+					</div>
+					<h4>See</h4>
+					<div class="list">
+							Filter RML/Folder/Type/Icon<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							string<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="is" id="_is">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_is">#</a>
+			<code>is( <span>integer <var>$folder_type</var></span> )</code>
+
+			<div class="description short">
+				<p>Check if the folder object is a given type.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Check if the folder object is a given type.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$folder_type</var></dt>
+						<dd>The folder type</dd>
+					</dl></div>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+							boolean<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isRestrictFor" id="_isRestrictFor">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isRestrictFor">#</a>
+			<code>isRestrictFor( <span>string <var>$restriction</var></span> )</code>
+
+			<div class="description short">
+				<p>Checks if this folder has a special restriction.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Checks if this folder has a special restriction.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$restriction</var></dt>
+						<dd>The restriction to check</dd>
+					</dl></div>
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							IFolder::setRestrictions()<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							boolean<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isValidChildrenType" id="_isValidChildrenType">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isValidChildrenType">#</a>
+			<code>isValidChildrenType( <span>integer <var>$type</var></span> )</code>
+
+			<div class="description short">
+				<p>Checks if a given folder type is allowed in this folder.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Checks if a given folder type is allowed in this folder.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd>The type</dd>
+					</dl></div>
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							IFolder::getAllowedChildrenTypes()<br>
+					</div>
+					<h4>Returns</h4>
+					<div class="list">
+							boolean<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods inherited from <a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html#methods">MatthiasWeb\RealMediaLibrary\api\IFolderActions</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html#_insert">insert()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html#_read">read()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html#_reindexChildrens">reindexChildrens()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html#_relocate">relocate()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html#_setName">setName()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html#_setParent">setParent()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html#_setRestrictions">setRestrictions()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderActions.html#_updateThisAndChildrensAbsolutePath">updateThisAndChildrensAbsolutePath()</a></code>
+			</p>
+		</div>
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods inherited from <a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#methods">MatthiasWeb\RealMediaLibrary\api\IFolderContent</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_contentDeleteOrder">contentDeleteOrder()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_contentEnableOrder">contentEnableOrder()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_contentIndex">contentIndex()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_contentOrder">contentOrder()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_contentReindex">contentReindex()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_contentRestoreOldCustomNr">contentRestoreOldCustomNr()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_getAttachmentNextTo">getAttachmentNextTo()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_getContentAggregationNr">getContentAggregationNr()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_getContentCustomOrder">getContentCustomOrder()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_getContentNrOf">getContentNrOf()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_getContentOldCustomNrCount">getContentOldCustomNrCount()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_getContentOrderNumbers">getContentOrderNumbers()</a></code>, 
+				<code><a href="class-MatthiasWeb.RealMediaLibrary.api.IFolderContent.html#_isContentCustomOrderAllowed">isContentCustomOrderAllowed()</a></code>
+			</p>
+		</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		PHPDoc Real Media Library API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

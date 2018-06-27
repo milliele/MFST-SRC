@@ -1,0 +1,609 @@
+/*!
+ * jQuery AIO All In One Tree Theme Wordpress
+ *
+ * @license
+ * Copyright MatthiasWeb (Matthias Günter)
+ * https://matthias-web.com
+ *
+ * Version 1.3.11 (only JS)
+ *
+ * Version 1.3.10 (only JS)
+ *
+ * Version 1.3.9
+ * - Added expand/collapse sidebar functionality
+ *
+ * Version 1.3.8 (only JS)
+ *
+ * Version 1.3.7 (only JS)
+ *
+ * Version 1.3.6 (only JS)
+ *
+ * Version 1.3.5
+ * - Added .clear class to .aio-tree child
+ * - Added search field
+ *
+ * Version 1.3.4 (only JS)
+ *
+ * Version 1.3.3
+ * - Improved the way of rearrange mode, the folders gets expand after 700ms of hover
+ *
+ * Version 1.3.2 (only JS)
+ *
+ * Version 1.3.1 (only JS)
+ *
+ * Version 1.3
+ * - Added lazy loading class .aio-lazy to .aio-tree (see JS)
+ * 
+ * Version 1.2 (only JS)
+ * 
+ * Version 1.1 (only JS)
+ * 
+ * Version 1.0
+ * - Initial release
+ */
+
+/** Containers */
+.aio-tree {
+    display: block;
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    -webkit-transition: opacity 500ms ease; /* Firefox */
+    -moz-transition: opacity 500ms ease; /* WebKit */
+    -o-transition: opacity 500ms ease; /* Opera */
+    transition: opacity 500ms ease; /* Standard */
+    opacity: 1;
+}
+.aio-tree.aio-tree-fade {
+    opacity: 0;
+}
+
+.aio-tree .clear {
+    clear: both;
+}
+
+.aio-opposite {
+    display: block;
+    float: right;
+    box-sizing: border-box;
+}
+
+.aio-tree [disabled="disabled"] {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+}
+.aio-tree [disabled="disabled"] * {
+    cursor: not-allowed !important;
+}
+
+/* No Content (Cover image, headline, subline) */
+.aio-no-content {
+    display: none;
+    text-align: center;
+    padding: 35px 15px;
+}
+.aio-searching .aio-no-content {
+    display: none !important;
+}
+.aio-tree.aio-lazy .aio-no-content {
+    display: none !important;
+}
+.aio-tree.aio-no-folders .aio-no-content {
+    display: block;
+}
+.aio-no-content-cover {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 170px;
+    height: 170px;
+    margin: 0px auto 15px;
+    padding: 0px;
+    border-radius: 999px;
+    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.45);
+    border: 3px solid #23282D;
+}
+
+/** Toolbar */
+.aio-tree hr {
+    margin: 6px 0px;
+    border: 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #fafafa;
+}
+.aio-tree .aio-toolbar {
+    position: relative;
+    box-sizing: border-box;
+    margin: 12px 0 10px;
+    padding: 12px 15px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    color: #555;
+    font-size: 13px;
+}
+.aio-toolbar-placeholder {
+    float: left;
+    font-size: 15px;
+    padding: 5px 4px;
+}
+.aio-toolbar-items {
+    float: right;
+    font-size: 15px;
+}
+.aio-toolbar-items > a {
+    padding: 4px 4px;
+    display: block !important;
+    float: left;
+    color: rgb(180, 185, 190);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+.aio-toolbar-items > a.aio-disable-link {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+.aio-toolbar-items > a:hover {
+    color: darkblue;
+}
+
+/** Toolbar back button */
+.aio-toolbar-back {
+    display: none;
+    padding-left: 10px;
+}
+.aio-toolbar-items.isCancelActive > a {
+    display: none !important;
+}
+.aio-toolbar-items.isCancelActive > a.isCancelActive {
+    display: block !important;
+}
+.aio-toolbar-items > a.isCancelActive .aio-toolbar-back {
+    display: inline-block;
+}
+.aio-prepare-create-new .aio-toolbar-items a.aio-predefined-rename,
+.aio-hide {
+    display: none !important;
+}
+
+/** Toolbar loader */
+.aio-tree .aio-toolbar .aio-tree-loader {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAXklEQVQYV2NkKFn1nwEEROXBFAp4/ZCBASLLwAhWSEARRGHnSageJLNAJoEATIYRm0Ik66B2gp2FaiIORahW41GEUEhAEcLXaA7HFgqMDMXQcIRowxmeCIV4FIHMAADu4TAvFHh4twAAAABJRU5ErkJggg==') repeat;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 0px;
+    -webkit-animation: aioBackgroundScroll 20s linear infinite;
+    animation: aioBackgroundScroll 20s linear infinite;
+    -webkit-transition: height 500ms ease, width 500ms ease; /* Firefox */
+    -moz-transition: height 500ms ease, width 500ms ease; /* WebKit */
+    -o-transition: height 500ms ease, width 500ms ease; /* Opera */
+    transition: height 500ms ease, width 500ms ease; /* Standard */
+}
+.aio-tree.loading .aio-toolbar .aio-tree-loader {
+    height: 5px;
+}
+@-webkit-keyframes aioBackgroundScroll {
+    from {background-position: 0 0;}
+    to {background-position: -400px 0;}
+}
+@keyframes aioBackgroundScroll {
+    from {background-position: 0 0;}
+    to {background-position: -400px 0;}
+}
+
+/** Search field */
+.aio-search {
+    border: 1px solid #e5e5e5;
+    color: #555;
+    margin-bottom: 6px;
+    font-size: 13px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    background: #fff;
+}
+.aio-search-focus {
+    color: #124964;
+    -webkit-box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, .8);
+    box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, .8);
+}
+.aio-search input {
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 12px !important;
+    width: 80% !important;
+    padding: 0.4em !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    background: none !important;
+}
+.aio-search i {
+    float: right;
+    display: block;
+    margin: 4px 0;
+    padding: 2px 9px;
+    border-left: 1px solid #e5e5e5;
+    color: #9ca1a6;
+}
+.aio-search i.fa-close {
+    cursor: pointer;
+    margin: 0;
+    padding: 6px 9px;
+    background: #d24a4a;
+    color: white;
+}
+.aio-no-results {
+    display: none;
+    text-align: center;
+}
+
+/** Nodes list (standard nodes) */
+.aio-list-standard,
+.aio-nodes {
+    position: relative;
+}
+.aio-nodes:after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 14px;
+    bottom: 0px;
+    border-right: 1px solid #DDDDDD;
+    border-left: 1px solid #FAFAFA;
+    width: 0px;
+    z-index: -2;
+}
+.aio-searching .aio-nodes:after {
+    display: none;
+}
+.aio-list-standard li {
+    margin-bottom: 0px;
+    display: block;
+    position: relative;
+}
+.aio-list-standard ul {
+    padding: 0px 0px 0px 20px;
+    margin: 0px;
+    display: none;
+}
+.aio-nodes > ul {
+    padding-left: 0px;
+    display: block;
+}
+.aio-list-standard {
+    position: relative;
+}
+.aio-list-standard > ul {
+    display: block;
+}
+.aio-list-standard li.aio-open > ul {
+    display: block;
+}
+.aio-list-standard.no-expand li ul {
+    display: block !important;
+}
+.aio-list-standard.no-expand .aio-expander {
+    display: none !important;
+}
+.aio-list-standard a {
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    box-shadow: none !important;
+    -webkit-transition: .15s margin ease-in-out;
+    transition: .15s margin ease-in-out;
+    position: relative;
+    line-height: 1;
+    cursor: pointer;
+}
+.aio-list-standard a:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.aio-list-standard a > i {
+    margin-right: 8px;
+    background-color: #F1F1F1;
+    float: left;
+    display: block;
+    padding-top: 1px;
+    position: relative;
+}
+.aio-list-standard .aio-restrict > a > i:after {
+    font-family: FontAwesome;
+    font-style: normal;
+    content: "\f023";
+    background: #f1f1f1;
+    position: absolute;
+    right: -2px;
+    font-size: 8px;
+    border-radius: 99px;
+    bottom: -3px;
+    padding: 1px;
+}
+.aio-list-standard a > i.fa.fa-folder-open {
+    display: none;
+}
+.aio-list-standard a.active > i.fa.fa-folder-open {
+    display: inline-block;
+}
+.aio-list-standard a.active > i.fa.fa-folder {
+    display: none;
+}
+.aio-list-standard a.active {
+    cursor: default;
+}
+.aio-list-standard a .aio-node-name {
+    display: inline-block;
+    width: calc(100% - 50px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1.25;
+}
+.aio-list-standard a.aio-disable-link {
+    cursor: default;
+}
+
+/* Rename */
+.aio-list-standard li > input[type="text"],
+button.aio-rename-submit {
+    padding: 0px 0px 0px 5px;
+    margin: 0px;
+    font-size: 13px;
+    border: 0;
+    background: rgb(208, 208, 208);
+    display: inline;
+    outline: none !important;
+    box-sizing: border-box;
+    width: 100px;
+    height: auto !important;
+    box-shadow: none;
+    cursor: auto;
+    position: absolute !important;
+    top: 4px !important;
+    left: 31px;
+    z-index: 999;
+    line-height: 18px;
+}
+button.aio-rename-submit {
+    width: auto;
+    background: #BDBDBD;
+    color: #777777;
+    padding: 0px 5px;
+    left: inherit;
+    right: 6px;
+}
+
+/** Node expander */
+.aio-expander {
+    position: absolute;
+    top: 0;
+    left: -16px;
+    text-align: center;
+    width: 25px;
+    font-size: 11px;
+    color: black;
+    opacity: 0.8;
+    -webkit-transition: all 500ms ease; /* Firefox */
+    -moz-transition: all 500ms ease; /* WebKit */
+    -o-transition: all 500ms ease; /* Opera */
+    transition: all 500ms ease; /* Standard */
+}
+.aio-expander i {
+    background: #F1F1F1;
+    margin: 8px 0px;
+}
+.aio-expander:hover {
+    border-radius: 3px;
+    box-shadow: -3px 0px 3px 1px rgba(0, 115, 170, 0.19);
+}
+.aio-expander .fa-minus-square-o {
+    display: none;
+}
+.aio-expander.aio-open .fa-minus-square-o {
+    display: inline-block;
+}
+.aio-expander.aio-open .fa-plus-square-o {
+    display: none;
+}
+
+/** Active node */
+.aio-list-standard a.active {
+    background: rgb(224, 224, 224);
+    background: -moz-linear-gradient(left,  rgba(224,224,224,0) 0%, rgba(224,224,224,1) 21%, rgba(224,224,224,1) 100%);
+    background: -webkit-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 21%,rgba(224,224,224,1) 100%);
+    background: linear-gradient(to right,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 21%,rgba(224,224,224,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e0e0e0', endColorstr='#e0e0e0',GradientType=1 );
+}
+.aio-list-standard a.active > i {
+    background-color: transparent;
+}
+
+/** Nodes counter */
+.aio-list-standard a span.aio-cnt {
+    color: white;
+    float: right;
+    display: block;
+    background: rgb(156, 161, 166);
+    font-size: 8px;
+    padding: 5px;
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    border-radius: 999px;
+    min-width: 8px;
+    text-align: center;
+}
+.aio-list-standard a span.aio-cnt-0 {
+    display: none;
+}
+
+/** Resize handler */
+.aio-split-resize {
+    position: absolute;
+    right: -9px;
+    top: 18px;
+    width: 16px;
+    height: 30px;
+    background: #D6D6D6;
+    border-radius: 15px;
+    cursor: col-resize;
+    display: none;
+}
+.aio-split-resize:after {
+    content: '\f142';
+    font-family: FontAwesome;
+    color: #F1F1F1;
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    font-size: 19px;
+}
+
+/** Resize handler for expand/collapse state */
+.aio-tree.aio-wrap-collapse .aio-wrap > :not(.aio-split-resize) {
+    visibility: hidden;
+}
+
+/** Movement handler */
+.aio-movement-helper {
+    padding: 10px 15px 10px 20px;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    z-index: 9999999;
+    background: #0073AA;
+    box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.2);
+}
+
+/** Create buttons */
+.aio-theme-default .aio-tree-headline a {
+    text-decoration: none;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.06);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+.aio-tree-headline.aio-disable-all a,
+.aio-tree-headline a.aio-cancel-create-new {
+    display: none !important;
+}
+.aio-prepare-create-new .aio-tree-headline a.aio-cancel-create-new {
+    display: inline !important;
+}
+
+/** Info links */
+.aio-info-links {
+    margin-top: 10px;
+    font-size: 10px;
+    padding: 0px 18px;
+}
+.aio-info-links a {
+    color: #999;
+    text-decoration: none;
+}
+
+/** Tooltipster Theme */
+.tooltipster-aio {
+    border: 0;
+	background: #0073AA;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.46);
+    display: block !important;
+    padding: 0px;
+    z-index: 9999999999;
+}
+.tooltipster-aio .tooltipster-arrow {
+    top: -1px;
+}
+.tooltipster-aio .tooltipster-content {
+	font-size: 13px;
+	line-height: 16px;
+	padding: 0px;
+}
+.tooltipster-aio .aio-tooltip-title {
+    color: white;
+    padding: 12px 10px;
+}
+.tooltipster-aio .aio-tooltip-text {
+    padding: 8px 10px 1px 10px;
+    background: white;
+    margin: 0px;
+}
+
+/** Rearrange mode, disable a few elements */
+.aio-rearrange .aio-tree-headline a {
+    display: none;
+}
+/*.aio-rearrange .aio-nodes li.aio-open ul {
+    display: block !important;
+}
+.aio-rearrange .aio-nodes .aio-expander {
+    display: none !important;
+}*/
+.aio-rearrange .aio-nodes li > ul:empty,
+.aio-rearrange .aio-nodes li:not(.aio-open):not(.aio-close) > ul {
+    display: block !important;
+}
+.aio-rearrange .aio-nodes a {
+    cursor: move;
+    position: relative;
+    pointer-events: auto;
+}
+.aio-rearrange .aio-nodes a:after {
+    content: '\f0c9';
+    font-family: FontAwesome;
+    position: absolute;
+    top: 6px;
+    right: 14px;
+    color: rgb(173, 173, 173);
+    box-shadow: -2px 0px 4px 4px #f1f1f1;
+    background-color: #f1f1f1;
+}
+/* Restrict hierarchical change */
+.aio-rearrange .aio-nodes .aio-restrict-hierarchical-change a:after {
+    content: '\f023';
+}
+
+.aio-rearrange .aio-nodes a.active {
+    background: none !important;
+}
+.aio-rearrange .ui-sortable-placeholder {
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px 1px rgb(50, 107, 165) !important;
+    margin-left: 5px;
+    visibility: visible !important;
+    z-index: 9999;
+}
+.aio-rearrange .mjs-nestedSortable-error {
+    box-shadow: 0px 1px 3px 1px #aa2100 !important;
+}
+
+.aio-rearrange .aio-nodes a > * {
+    visibility: hidden !important;
+}
+.aio-rearrange .aio-nodes a > i,
+.aio-rearrange .aio-nodes a > .aio-node-name {
+    visibility: visible !important;
+}
+
+/** Droppable */
+.aio-list-standard a:not(.aio-disable-link).ui-state-hover:after,
+.aio-list-standard .aio-search-selected:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    box-shadow: 0px 0px 2px 1px #0073AA !important;
+    background: rgba(0, 115, 170, 0.1);
+    z-index: 999;
+}
+.aio-list-standard.aio-currently-dragging .aio-expander {
+    left: 15px;
+    opacity: 0;
+}

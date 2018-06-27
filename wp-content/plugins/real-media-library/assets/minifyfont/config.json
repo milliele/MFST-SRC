@@ -1,0 +1,28 @@
+{
+  "name": "minifyfont",
+  "css_prefix_text": "mwf-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "3def559c3c39b8500882e02892b7daa8",
+      "css": "collection",
+      "code": 59401,
+      "src": "entypo"
+    },
+    {
+      "uid": "5e9f01871d44e56b45ecbfd00f4dbc3a",
+      "css": "gallery",
+      "code": 59392,
+      "src": "entypo"
+    },
+    {
+      "uid": "bb1090404a4d33340a9ad7302ef8b6e8",
+      "css": "archive",
+      "code": 59393,
+      "src": "websymbols"
+    }
+  ]
+}

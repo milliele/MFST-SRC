@@ -1,0 +1,124 @@
+/**
+ * jQuery AIO All In One Tree Theme Wordpress
+ *
+ * Version 1.2 (only JS)
+ * 
+ * Version 1.1 (only JS)
+ * 
+ * Version 1.0
+ * - Initial release
+ * 
+ * Copyright MatthiasWeb (Matthias Günter)
+ *
+ * Configure your site with the body class
+ * $("body").addClass("activate-aio")
+ * 
+ * Also add to the createTypes the cssClasses option
+ * "page-title-action add-new-h2" to act as default
+ * wordpress buttons.
+ */
+body.activate-aio {
+    position: static !important;
+}
+body.activate-aio #wpbody-content {
+    width: calc(100% - 260px);
+    float: right !important;
+    box-sizing: border-box;
+    padding-left: 15px !important;
+}
+
+body.activate-aio .aio-tree .aio-wrap {
+    margin-right: 15px;
+    padding-bottom: 50px;
+}
+
+.aio-theme-wordpress {
+    border-right: 1px solid rgb(229, 229, 229);
+}
+
+/** Loader theme */
+.aio-theme-wordpress.loading .aio-toolbar {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAUUlEQVQYV4WQQQ4AMAQE6+L/73VpuxKCtLgIJoslEdnrBjMTcgyboUcoJkjBqoI6Ktm8XWcQNibwpWRnOdhBfuME+df1oZcLak8Ef1YlsPPzAKqKN6wUO5OfAAAAAElFTkSuQmCC');
+    background-repeat: repeat;
+    -webkit-animation: aioBackgroundScroll 20s linear infinite;
+    animation: aioBackgroundScroll 20s linear infinite;
+}
+
+/** Headline */
+.aio-theme-wordpress .aio-tree-headline {
+    height: 31px;
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0;
+    padding: 9px 15px 4px 0;
+    line-height: 29px;
+}
+
+.aio-theme-wordpress > .aio-wrap {
+    margin: 10px 20px 0 2px;
+}
+
+.rml-media-modal .aio-theme-wordpress .aio-tree-headline a {
+    margin-left: 4px;
+    padding: 4px 8px;
+    position: relative;
+    top: -3px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: #f7f7f7;
+    text-shadow: none;
+    font-weight: 600;
+    font-size: 13px;
+}
+.rml-media-modal .aio-theme-wordpress .aio-tree-headline a:hover {
+    border-color: #008EC2;
+    background: #00a0d2;
+    color: #fff;
+}
+
+/* Fixed header for wordpress media library (normal, not modal dialog) */
+@media all and (min-width: 700px) {
+    .aio-theme-wordpress-fixed {
+        padding-top: 138px;
+    }
+    .aio-theme-wordpress-fixed .aio-toolbar {
+        margin-bottom: 0px;
+    }
+    .aio-theme-wordpress-fixed .aio-fixed-header {
+        background: #f1f1f1;
+        position: fixed;
+        top: 32px;
+        z-index: 159999;
+        padding-top: 9px;
+        border-radius: 0px 0px 5px 5px;
+        overflow: hidden;
+        -webkit-transition: box-shadow 500ms ease; /* Firefox */
+        -moz-transition: box-shadow 500ms ease; /* WebKit */
+        -o-transition: box-shadow 500ms ease; /* Opera */
+        transition: box-shadow 500ms ease; /* Standard */
+    }
+    #adminmenu .wp-submenu {
+        z-index: 160000;
+    }
+    .aio-theme-wordpress-fixed.aio-rearrange {
+        padding-top: 148px;
+    }
+    .aio-theme-wordpress-fixed.aio-rearrange button.aio-rearrange-save {
+        margin: 10px 5px;
+    }
+    .aio-theme-wordpress-fixed .aio-fixed-header.aio-reached-overflow {
+        -webkit-box-shadow: 0px 0px 5px -5px #f1f1f1, 0 10px 10px 1px rgba(0, 0, 0, 0.22);
+        -moz-box-shadow: 0px 0px 5px -5px #f1f1f1, 0 10px 10px 1px rgba(0, 0, 0, 0.22);
+        box-shadow: 0px 0px 5px -5px #f1f1f1, 0 10px 10px 1px rgba(0, 0, 0, 0.22);
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .aio-theme-wordpress-fixed .aio-fixed-header.aio-reached-overflow .aio-toolbar {
+        border-color: white;
+        margin-left: -5px;
+        margin-right: -5px;
+        width: inherit;
+    }
+}

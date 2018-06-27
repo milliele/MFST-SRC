@@ -1,0 +1,4 @@
+
+.mwf-gallery:before { content: '\e800'; } /* '' */
+.mwf-archive:before { content: '\e801'; } /* '' */
+.mwf-collection:before { content: '\e809'; } /* '' */
