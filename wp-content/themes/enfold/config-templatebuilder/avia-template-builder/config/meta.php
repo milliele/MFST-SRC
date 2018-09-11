@@ -292,7 +292,7 @@ $elements = array(
         "desc"  => __("Several options to change the header transparency and visibility on this page.",'avia_framework'),
         "id"    => "header_transparency",
         "type"  => "select",
-        "std"   => "",
+        "std"   => "header_transparent",
         "class" => "avia-style",
         "subtype" => array( __("No transparency",'avia_framework') => '',
                             __('Transparent Header','avia_framework') =>'header_transparent',
